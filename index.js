@@ -1,7 +1,7 @@
 const bodyParser = require("body-parser"),
   express = require("express"),
   morgan = require("morgan"),
-  uuid=require("uuid"),
+  uuid = require("uuid"),
   app = express();
 
 let users = [
@@ -168,7 +168,7 @@ app.get("/movies/director/:directorName", (req, res) => {
 app.post("/users", (req, res) => {
   const newUser = req.body;
 
-  if (newUser.name) {
+  if (newUser.Name) {
     newUser.id = uuid.v4();
     users.push(newUser);
     res.status(201).json(newUser);
