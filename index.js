@@ -155,7 +155,7 @@ app.get("/movies/:title", (req, res) => {
 //get director profile (READ)
 app.get("/movies/director/:directorName", (req, res) => {
   const { directorName } = req.params;
-  const directors = movieList.find(movieList.director.Name === directorName).director;
+  const directors = movieList.find((movie) => movie.director.Name === directorName).director;
 
   if (directors) {
     res.status(200).json(directors);
