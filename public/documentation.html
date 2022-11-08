@@ -9,7 +9,24 @@
     <h1>Sci-Fi Movie Database</h1>
     <p>The primary focus of this API is to demanstrate my understanding of full-stack JS development. This API allows users to search
         for information regarding a number of sci-fi movies, including actors, directors, descriptions, etc.
-        the tech stack includes MongoDB, Express, React, and Node.
+        the tech stack includes MongoDB, Express, React, and Node. These are the functions to be performed and their endpoints:
+        CREATE PATHS:
+        /users: adds user information. Data is stored in JSON. A name is necessary in order for the funtion to go through, and an ID is automatically assigned.
+
+        READ PATHS:
+        /movies: returns a list of all movies and their details. 
+        /movies/:title - this allows the user to search for a specific title in the API. If not found, a message will display stating it is not in the list.
+        /movies/director/:directorName - allows user to search for a specific director and returns their details. If not found, a message will display stating so.
+
+        UPDATE PATHS:
+        /users/:id - allows user to update a name. requires the assigned ID. format the input in JSON with the desired change in the name field. If successful, the profile will display with the updated name.
+        /users/:id/:movieTitle - adds a title to the user's favorites. Requires user ID and desired title. If successful, will display a message stating the moview has been added to favorites.
+
+        DELETE PATHS:
+        /users/:id - allows user to delete profile. requires ID. A cofirmation message will be sent if successful.
+        /users/:id/:movieTitle - removes a movie from favorites. requires title and user ID. A confirmation message will be sent if successful.
+
+
     </p>
   </body>
 
