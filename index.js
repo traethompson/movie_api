@@ -10,6 +10,16 @@ let users = [
     "Name": "Jason",
     "favorites": ["City of Ember"],
   },
+  {
+    "id": 2,
+    "Name": "Brent",
+    "favorites": ["The Hitchiker's Guide to the Galaxy"],
+  },
+  {
+    "id": 3,
+    "Name": "Melissa",
+    "favorites": ["Treasure Planet"],
+  }
 ];
 let movieList = [
   {
@@ -68,7 +78,7 @@ let movieList = [
       "Thirty years after war turned the world into a wasteland, a lone warrior named Eli (Denzel Washington) marches across the ruined landscape, carrying hope for humanity's redemption. Only one other man (Gary Oldman) understands the power of what Eli carries, and he is determined to take it for himself. Though Eli prefers peace, he will risk death to protect his precious cargo, for he must fulfill his destiny to help restore mankind.",
     "director": {
       "Name": "Albert Hughes and Allen Hughes",
-      "bio": "Albert Hughes and Allen Hughes (born April 1, 1972), known together professionally as the Hughes brothers, are American film directors and producers. The pair, who are twins,[1] are known for co-directing visceral, and often violent, movies, including 1993's Menace II Society, 1995's Dead Presidents, 2001's From Hell and 2010's The Book of Eli.",
+      "bio": "Albert Hughes and Allen Hughes (born April 1, 1972), known together professionally as the Hughes brothers, are American film directors and producers. The pair, who are twins,[1] are known for co-directing visceral, and often violent, movies, including 1993s Menace II Society, 1995s Dead Presidents, 2001s From Hell and 2010's The Book of Eli.",
       "born": 1972
     }
   },
