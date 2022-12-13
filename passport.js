@@ -10,20 +10,20 @@ let Users = Models.User,
 passport.use(
   new LocalStrategy(
     {
-      nameField: "Name",
+      usernameField: "Username",
       passwordField: "Password",
     },
-    (name, password, callback) => {
-      console.log(name + " " + password);
-      Users.findOne({ name: name }, (error, user) => {
+    (username, password, callback) => {
+      console.log(username + " " + password);
+      Users.findOne({ Username: username }, (error, user) => {
         if (error) {
           console.log(error);
           return callback(error);
         }
 
         if (!user) {
-          console.log("incorrect name");
-          return callback(null, false, { message: "Incorrect name or password." });
+          console.log("incorrect username");
+          return callback(null, false, { message: "Incorrect username or password." });
         }
 
         console.log("finished");
@@ -38,9 +38,8 @@ passport.use(
     {
       jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
       secretOrKey: "your_jwt_secret",
-    },
-    (jwtPayload, callback) => {
-      return Users.findById(jwtPayload_id)
+    }, (jwtPayload, callback) => {
+      return Users.findById(jwtPayload._id)
         .then((user) => {
           return callback(null, user);
         })
