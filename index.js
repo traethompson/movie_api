@@ -9,6 +9,8 @@ app.use(cors());
 
 const {check, validationResult} = require("express-validator");
 
+app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 let auth = require("./auth.js")(app);
 const passport = require("passport");
@@ -27,7 +29,7 @@ mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedT
 //add morgan logging, error handling, and page requests
 app.use(morgan("common"));
 
-app.use(bodyParser.json());
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -154,12 +156,14 @@ app.post("/users", [
   Birthday: Date
 }*/
 app.put("/users/:Username", passport.authenticate("jwt", { session: false }), (req, res) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOneAndUpdate(
     { Username: req.params.Username },
+    
     {
       $set: {
         Username: req.body.Username,
-        Password: req.body.Password,
+        Password: hashedPassword,
         Email: req.body.Email,
         Birthday: req.body.Birthday,
       },
