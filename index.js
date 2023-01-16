@@ -5,7 +5,6 @@ const bodyParser = require("body-parser"),
   app = express();
 
 const cors = require("cors");
-app.use(bodyParser.json());
 app.use(cors());
 
 const {check, validationResult} = require("express-validator");
@@ -29,6 +28,8 @@ mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedT
 
 //add morgan logging, error handling, and page requests
 app.use(morgan("common"));
+
+app.use(bodyParser.json());
 
 
 
