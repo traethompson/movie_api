@@ -4,14 +4,15 @@ const bodyParser = require("body-parser"),
   uuid = require("uuid"),
   app = express();
 
-const cors = require("cors");
-app.use(cors());
+
 
 const {check, validationResult} = require("express-validator");
 
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));
+const cors = require("cors");
+app.use(cors());
 let auth = require("./auth.js")(app);
 const passport = require("passport");
 require("./passport");
