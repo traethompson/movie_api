@@ -4,9 +4,7 @@ const bodyParser = require("body-parser"),
   uuid = require("uuid"),
   app = express();
 
-
-
-const {check, validationResult} = require("express-validator");
+  const {check, validationResult} = require("express-validator");
 
 app.use(bodyParser.json());
 
@@ -117,7 +115,7 @@ app.post("/users", [
   check ("Email", "Email does not appear to be valid").isEmail()
 ],(req, res) => {
   let errors = validationResult(req);
-  if (errors.isEmpty()){
+  if (!errors.isEmpty()){
     return res.status(422).json({errors: errors.array()});
   }
   let hashedPassword = Users.hashPassword(req.body.Password);
