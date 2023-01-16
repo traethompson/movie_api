@@ -5,11 +5,12 @@ const bodyParser = require("body-parser"),
   app = express();
 
 const cors = require("cors");
+app.use(bodyParser.json());
 app.use(cors());
 
 const {check, validationResult} = require("express-validator");
 
-app.use(bodyParser.json());
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 let auth = require("./auth.js")(app);
