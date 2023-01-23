@@ -55,7 +55,7 @@ app.get("/movies", passport.authenticate("jwt", { session: false }), (req, res) 
 app.use(express.static("public"));
 
 //Get movie by title (READ)
-app.get("/movies/:Title", passport.authenticate("jwt", { session: false }), (req, res) => {
+app.get("/movies/:Title", (req, res) => {
   Movies.findOne({ Title: req.params.Title })
     .then((movie) => {
       res.json(movie);
